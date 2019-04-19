@@ -1,0 +1,16 @@
+<!--pages/login/login.wxml-->
+<view class="container">
+  <!--用户信息-->
+  <view class="user-info">
+    <view class="user-head">
+      <open-data type="userAvatarUrl" class='user-avatar'></open-data>
+    </view>
+    <open-data type="userNickName" class='user-name'></open-data>
+  </view>
+  <!-- login -->
+  <button class='login' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
+    手机号一键授权登录
+  </button>
+  <!-- 提示 -->
+  <van-toast id="van-toast" />
+</view>

@@ -1,0 +1,194 @@
+/**app.wxss**/
+@import 'styles/font.wxss';
+
+[class^="imoon-"], [class*=" imoon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.imoon-hurt:before {
+  content: "\e900";
+}
+
+page {
+  height: 100%;
+}
+
+.container {
+  box-sizing: border-box;
+  min-height: 100%;
+  color: #646464;
+  font-size: 30rpx;
+  font-family: "PingFang SC", "helvetica", "helvetica neue";
+}
+
+.container-overflow {
+  height: 100%;
+  overflow: hidden;
+}
+
+image {
+  display: block;
+}
+
+.box-sizing {
+  box-sizing: border-box;
+}
+
+/*弹出层  */
+
+.popup-overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+button::after {
+  border: none;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.text-overflow {
+  overflow: hidden;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.clamp-overflow {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  word-break: break-all;
+}
+
+/* 数据加载部分 */
+
+.copyright {
+  font-size: 24rpx;
+  line-height: 48rpx;
+  color: #808080;
+  text-align: center;
+  margin: 30rpx 0;
+}
+
+.no-data {
+  padding-top: 100rpx;
+  text-align: center;
+}
+
+.no-data image {
+  width: 240rpx;
+  height: 240rpx;
+  margin: 0 auto 18rpx;
+}
+
+.no-data .more {
+  font-size: 28rpx;
+  color: #808080;
+  line-height: 50rpx;
+}
+
+.no-data .more navigator {
+  color: #02a7d7;
+}
+
+/* 导航 wrap */
+
+.tab-wrap {
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 2px 20px 0 rgba(214, 214, 214, 0.50);
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+}
+
+/*  重写 checkbox 样式  */
+
+/* 未选中的 背景样式 */
+
+.checkbox {
+  display: inline-flex;
+  font-size: 28rpx;
+  color: #030303;
+  align-items: center;
+}
+
+checkbox .wx-checkbox-input {
+  border-radius: 50%; /* 圆角 */
+  width: 36rpx; /* 背景的宽 */
+  height: 36rpx; /* 背景的高 */
+  border: 2rpx solid #00a4d8;
+  margin-right: 22rpx;
+  vertical-align: center;
+}
+
+/* 选中后的 背景样式 （红色背景 无边框 可根据UI需求自己修改） */
+
+/* checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+  background: transparent;
+} */
+
+/* 选中后的 对勾样式 （白色对勾 可根据UI需求自己修改） */
+
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  border-radius: 50%; /* 圆角 */
+  width: 36rpx; /* 选中后对勾大小，不要超过背景的尺寸 */
+  height: 36rpx; /* 选中后对勾大小，不要超过背景的尺寸 */
+  line-height: 36rpx;
+  text-align: center;
+  font-size: 30rpx; /* 对勾大小 30rpx */
+  color: #00a4d8; /* 对勾颜色 白色 */
+  background: transparent;
+  transform: translate(-50%, -50%) scale(1);
+  -webkit-transform: translate(-50%, -50%) scale(1);
+}
+
+.mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.canvas-box {
+  position: fixed;
+  top: 999999rpx;
+  left: 0;
+}
+
+.container .full-mask {
+  background: #fff;
+}
+
+.container .full-toast {
+  background: none;
+}
+
+.container .full-toast image {
+  max-width: 240rpx;
+  max-height: 240rpx;
+}

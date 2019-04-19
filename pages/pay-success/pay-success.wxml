@@ -1,0 +1,12 @@
+<!--pages/pay-success/pay-success.wxml-->
+<view class="container">
+  <view class="icon">
+    <image src="/images/success.png"></image>
+  </view>
+  <view class="title">您的订单已经支付成功</view>
+  <view class="action">
+    <navigator url="/pages/home/home" open-type='switchTab'>返回首页</navigator>
+    <navigator url="/pages/order-list/order-list?status={{status}}" open-type='redirectTo'>查看订单</navigator>
+  </view>
+</view>
+<van-dialog id="van-dialog"/>

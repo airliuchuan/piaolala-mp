@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "详情",
+  "usingComponents": {
+    "i-toast": "../../components/i-view/toast/index"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "我喜欢的",
+  "usingComponents": {
+    "goods-item": "../../components/goods-item/goods-item",
+    "i-toast": "../../components/i-view/toast/index"
+  }
+}

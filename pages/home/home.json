@@ -1,0 +1,11 @@
+{
+  "component": true,
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "city":"../../components/city/city",
+    "goods-item": "../../components/goods-item/goods-item",
+    "wux-rater": "../../components/wux/rater/index",
+    "van-toast": "../../components/vant/toast/index",
+    "i-toast": "../../components/i-view/toast/index"
+  }
+}

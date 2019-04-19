@@ -1,0 +1,57 @@
+/* pages/show/show.wxss */
+
+.container {
+  padding: 0 0 30rpx;
+}
+
+.title {
+  padding: 0 30rpx;
+  height: 120rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title text {
+  font-size: 42rpx;
+  color: #000;
+  font-weight: bold;
+}
+
+.title navigator {
+  font-size: 28rpx;
+  color: #808080;
+  line-height: 120rpx;
+}
+
+.swiper-block {
+  height: 450rpx;
+  width: 650rpx;
+  margin:0 auto;
+}
+
+.swiper-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  overflow: unset;
+}
+
+.slide-image {
+  
+  width: 215rpx;
+  height: 312rpx;
+  border-radius: 20rpx;
+  box-shadow: 0 2rpx 4rpx 0 rgba(0, 0, 0, 0.50);
+  z-index: 1;
+}
+
+.active {
+  z-index: 20;
+}
+
+.active image {
+  transform: scale(1.28);
+  transition: all 0.5s ease-in 0s;
+}

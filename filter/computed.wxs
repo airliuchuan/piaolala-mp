@@ -1,0 +1,18 @@
+var plus = function(x,y) {
+  return (parseInt(x)+parseInt(y))/100;
+}
+var getPrice = function(price,ratio){
+  return Math.ceil(price*(100+parseInt(ratio))/10000);
+}
+var fixed = function(num,digit){
+  return num < 10 ? num.toFixed(digit):num;
+}
+var dateArr = function (str, split) {
+  return str.split(split);
+}
+module.exports = {
+  plus:plus,
+  getPrice: getPrice,
+  fixed: fixed,
+  dateArr: dateArr
+}

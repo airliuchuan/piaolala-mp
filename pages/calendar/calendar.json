@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "演出日历",
+  "usingComponents": {
+    "i-toast": "../../components/i-view/toast/index"
+  }
+}

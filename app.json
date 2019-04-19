@@ -1,0 +1,61 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/express/express",
+    "pages/goods-detail/goods-detail",
+    "pages/ranking-detail/ranking-detail",
+    "pages/order-detail/order-detail",
+    "pages/pay-success/pay-success",
+    "pages/prize/prize",
+    "pages/coupons/coupons",
+    "pages/prize-rule/prize-rule",
+    "pages/idea/idea",
+    "pages/calendar/calendar",
+    "pages/refund-rule/refund-rule",
+    "pages/buy-notes/buy-notes",
+    "pages/follow/follow",
+    "pages/order-confirm/order-confirm",
+    "pages/goods-choice/goods-choice",
+    "pages/show/show",
+    "pages/address-list/address-list",
+    "pages/ranking/ranking",
+    "pages/address-edit/address-edit",
+    "pages/search/search",
+    "pages/agreement/agreement",
+    "pages/login/login",
+    "pages/help/help",
+    "pages/category/category",
+    "pages/order-list/order-list",
+    "pages/user/user"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "聚票·中国票务网",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f6f6f7"
+  },
+  "tabBar": {
+    "selectedColor": "#1296db",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "榜单",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home1.png"
+      },
+      {
+        "pagePath": "pages/show/show",
+        "text": "演出",
+        "iconPath": "images/show.png",
+        "selectedIconPath": "images/show1.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的",
+        "iconPath": "images/user.png",
+        "selectedIconPath": "images/user1.png"
+      }
+    ]
+  }
+}

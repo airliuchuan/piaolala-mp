@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "优惠券",
+  "usingComponents": {
+    "van-tab": "../../components/vant/tab/index",
+    "van-tabs": "../../components/vant/tabs/index",
+    "i-toast": "../../components/i-view/toast/index",
+    "van-toast": "../../components/vant/toast/index",
+    "van-dialog": "../../components/vant/dialog/index"
+  }
+}

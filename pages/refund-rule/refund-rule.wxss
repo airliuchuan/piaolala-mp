@@ -1,0 +1,24 @@
+/* pages/refund-rule/refund-rule.wxss */
+.container{
+  padding: 0 30rpx;
+}
+
+.content {
+  font-size: 28rpx;
+  color: #808080;
+  text-align: justify;
+  line-height: 54rpx;
+  margin-top: 15rpx;
+  word-break: break-all;
+}
+.title{
+  font-size: 30rpx;
+  color:#151515;
+}
+.s-title {
+  line-height: 100rpx;
+}
+
+.s-content {
+  margin-bottom: 30rpx;
+}

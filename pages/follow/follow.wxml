@@ -1,0 +1,22 @@
+<!--pages/follow/follow.wxml-->
+<wxs src="../../filter/computed.wxs" module="computed" />
+<view class="container">
+  <block wx:if="{{followList}}">
+    <block wx:for="{{followList}}">
+      <view class="title"><text class="day">{{computed.dateArr(index,'.')[2]}}</text>{{computed.dateArr(index,'.')[1]}}月<text class="year">{{computed.dateArr(index,'.')[0]}}</text></view>
+      <view class="goods-list">
+        <goods-item list="{{item}}"></goods-item>
+      </view>
+    </block>
+
+  </block>
+  <view class="no-data" wx:if="{{noData}}">
+    <image src="/images/no_data.png"></image>
+    <view class="more">
+      <view class="text">哎呀，您还没有收藏演出</view>
+      <navigator url="/pages/home/home" open-type='switchTab'>去看看~</navigator>
+    </view>
+  </view>
+  <view class="copyright" wx:else>没有更多了</view>
+  <i-toast id="toast" i-class="full-toast" i-mask="full-mask"/>
+</view>

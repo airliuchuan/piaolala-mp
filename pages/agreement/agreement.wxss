@@ -1,0 +1,18 @@
+/* pages/agreement/agreement.wxss */
+
+.container {
+  padding: 0 30rpx 40rpx 30rpx;
+  font-size: 28rpx;
+  color: #323232;
+  text-align: justify;
+  line-height: 48rpx;
+  word-break: break-all;
+}
+
+.title {
+  text-align: center;
+  font-size: 32rpx;
+  color: #323232;
+  line-height: 54rpx;
+  margin:40rpx auto;
+}

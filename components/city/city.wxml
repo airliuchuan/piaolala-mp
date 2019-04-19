@@ -1,0 +1,37 @@
+<!--components/city/city.wxml-->
+<van-transition show="{{ show }}" custom-class="block" z-index="99">
+  <view class="city" style="top:{{top}}rpx;">
+    <!-- 显示点击字母 -->
+    <block wx:if="{{isShowLetter}}">
+      <view class="showSlectedLetter">{{showLetter}}</view>
+    </block>
+    <view class="searchLetter touchClass">
+      <view wx:for="{{searchLetter}}" style="height:{{itemH}}px" data-letter="{{item.name}}" catchtouchstart="searchStart" catchtouchmove="searchMove" catchtouchend="searchEnd">
+        {{item.name}}
+      </view>
+    </view>
+    <scroll-view scroll-y="true" style="height:{{winHeight}}px" catchtouchmove="true" scroll-into-view="{{showLetter}}">
+      <view class="selection" wx:for="{{cityList}}" wx:key="{{item.initial}}" id="{{item.initial}}">
+        <block wx:if="{{index===0}}">
+          <view style="margin-left: 30rpx;margin-bottom: 15px">
+            <text class="hor">定位城市</text>
+            <view>
+              <view class="kuai curtext" bindtap='close'>{{currentCity}}</view>
+            </view>
+          </view>
+          <view style="margin-left: 30rpx;margin-bottom: 15px">
+            <text class="hor">国内热门城市</text>
+            <view>
+              <view class="kuai {{cityCode==item.cityCode?'current-city':''}}" wx:for="{{hotCitys}}" wx:for-index="cityIndex" wx:key="{{cityIndex}}" data-text="{{item.cityName}}" data-citynum="{{item.cityId}}" data-citycode="{{item.cityCode}}" bindtap="wxSortPickerViewItemTap">{{item.cityName}}</view>
+            </view>
+          </view>
+        </block>
+        <view class="item_letter">{{item.initial}}</view>
+        <view class="item_city {{cityCode==ct.cityCode?'current-city':''}}" wx:for="{{item.cityInfo}}" wx:for-item="ct" wx:key="{{ct.id}}" wx:for-index="idx" data-text="{{ct.cityName}}" data-citynum="{{ct.cityId}}" data-citycode="{{ct.cityCode}}"  bindtap="wxSortPickerViewItemTap">
+          {{ct.cityName}}
+          <icon type="success_no_circle" size='20' color="#00A4D8" wx:if="{{cityCode==ct.cityCode}}"></icon>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</van-transition>

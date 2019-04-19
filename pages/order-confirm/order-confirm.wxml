@@ -1,0 +1,109 @@
+<!--pages/order-confirm/order-confirm.wxml-->
+<view class="container">
+  <view class="wrap">
+    <view class="title">
+      <image src="/images/confirm_bj.png"></image>
+      <view class="provider">票品提供方：{{business}}
+        <text wx:if="{{business=='中国票务网'}}">自营</text>
+      </view>
+      <navigator hover-class='none' url="/pages/refund-rule/refund-rule">
+        <van-icon name="info-o" color="#808080" size='24rpx' custom-class="icon" />退赔规则</navigator>
+    </view>
+    <view class="goods-info">
+      <view class="pic">
+        <image mode='aspectFill' src="{{goods.poster}}"></image>
+      </view>
+      <view class="info">
+        <view class="goods-name clamp-overflow">{{goods.goodsName}}</view>
+        <view class="cell">
+          <text class="time text-overflow">{{price.planName}}</text>
+          <view class="location">{{goods.venueName}}</view>
+          <view class="price-cell">
+            <view class="price text-overflow">{{price.levelAlias}}</view>
+            <view class="num">X
+              <text>{{num}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="goods-total">
+      合计：
+      <text>{{total}}</text>元
+    </view>
+  </view>
+  <view class="user-info">
+    <view class="item">
+      <view class="label">取票方式</view>
+      <view class="cell get-way">
+        <block wx:for="{{price.deliverType}}">
+          <block wx:if="{{item==1}}">
+            <view data-type="{{item}}" class="get-item {{item==deliverType?'active':''}}" wx:if="{{price.isExpress==1}}" bindtap='changeDeliverType'>{{deliverTypeJson[item]}}</view>
+          </block>
+          <view wx:else data-type="{{item}}" class="get-item {{item==deliverType?'active':''}}" bindtap='changeDeliverType'>{{deliverTypeJson[item]}}</view>
+        </block>
+      </view>
+    </view>
+    <block wx:if="{{deliverType==1}}">
+      <navigator hover-class='none' url="/pages/address-list/address-list?openType=1" class="item" wx:if="{{address}}">
+        <view class="label">收货地址</view>
+        <view class="cell change-adr">
+          <view class="adr">
+            <view class="user">{{address.receiverName}} {{address.phone}}</view>
+            <view class="adr-info">{{cityList[address.provinceId]}}{{cityList[address.cityId]}}{{cityList[address.countyId]}}{{address.detailedAddress}}</view>
+          </view>
+          <van-icon name="arrow" color="#c0c0c0" size='20rpx' custom-class="icon" />
+        </view>
+      </navigator>
+      <navigator hover-class='none' url="/pages/address-edit/address-edit?openType=2" class="item" wx:else>
+        <view class="label">收货地址</view>
+        <view class="cell add-adr">添加地址
+          <van-icon name="arrow" color="#c0c0c0" size='20rpx' custom-class="icon" />
+        </view>
+      </navigator>
+      <view class="item">
+        <view class="label">运费：</view>
+        <view class="cell freight">
+          ￥<text>10</text></view>
+      </view>
+    </block>
+    <block wx:else>
+      <label class="item user-label">
+        <view class="label">取票人姓名：</view>
+        <view class="cell">
+          <input placeholder='请输入取票人姓名' placeholder-class='place-color' value="{{address.receiverName}}" bindblur='userConfirm'></input>
+        </view>
+      </label>
+      <label class="item phone">
+        <view class="label">取票人手机：</view>
+        <view class="cell">
+          <input type="number" placeholder='请输入取票人手机号' maxlength='11' placeholder-class='place-color' value="{{address.phone}}" bindblur='phoneConfirm'></input>
+        </view>
+      </label>
+      <view class="item">
+        <view class="desc">请在演出开场前1个小时，在演出场馆凭手机短信取票码取票，客服热线400-810-8080</view>
+      </view>
+    </block>
+    <view class="item">
+      <view class="label">优惠劵</view>
+      <view class="cell">无可用-￥<text class="coupon-price">10</text><van-icon name="arrow" color="#c0c0c0" size='20rpx' custom-class="icon" /></view>
+    </view>
+  </view>
+  <view class="article">
+    <view class="text">
+      我已阅读并同意
+      <navigator hover-class='none' url="/pages/agreement/agreement">《聚票·中国票务网用户服务协议》</navigator>
+    </view>
+  </view>
+  <view class="bottom">
+    <view class="total">需付：￥
+      <text>{{amount}}</text>
+    </view>
+    <view class="action">
+      <button class="wechat-pay" bindtap='createOrder'>{{amount>0?'微信支付':'免费领取'}}</button>
+    </view>
+  </view>
+  <van-toast id="van-toast" />
+  <van-dialog id="van-dialog" />
+  <i-toast id="toast" i-class="full-toast" i-mask="full-mask" />
+</view>

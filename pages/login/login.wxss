@@ -1,0 +1,47 @@
+/* pages/login/login.wxss */
+.container{
+  box-sizing: border-box;
+  padding-top: 210rpx;
+}
+.user-info{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 140rpx;
+}
+.user-info .user-head {
+  width: 148rpx;
+  height: 148rpx;
+  background: #ddd;
+  border: 6rpx solid #eee;
+  border-radius: 50%;
+  margin-bottom: 30rpx;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-head .user-avatar {
+  display: block;
+  overflow: hidden;
+  width: 136rpx;
+  height: 136rpx;
+  border-radius: 50%;
+  z-index: 999;
+}
+
+.user-info .user-name {
+  font-size: 32rpx;
+  color: #333;
+}
+
+.login {
+  background-image: linear-gradient(135deg, #27dcc6 0%, #03a8d7 100%);
+  border-radius: 74rpx;
+  width: 80%;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #fff;
+  font-size: 30rpx;
+}

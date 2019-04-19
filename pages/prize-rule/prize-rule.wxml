@@ -1,0 +1,29 @@
+<!--pages/przie-rule/przie-rule.wxml-->
+<view class="container">
+  <view class="item">
+    <view class="title">适合场景：</view>
+    <view class="content">1、用户每次购票成功后即可抽奖1次；</view>
+    <view class="content">2、用户每天登陆即可抽奖1次不累计仅限当天使用；</view>
+    <view class="content">3、用户分享指定页面即可抽奖1次；</view>
+    <view class="content">4、用户每日最多抽奖3次。</view>
+  </view>
+  <view class="item">
+    <view class="title">抽奖规则玩法说明：</view>
+    <view class="content">1、用户抽中奖品后，弹出分享奖品页面，分享指定页面即可领取；</view>
+    <view class="content">2、演出票仅限于北京地区使用；</view>
+    <view class="content">3、演出票中奖者，请在中奖结束后3个工作日内完善个人信息，于中奖后3个工作日发出，逾期未提交视为放弃该奖品，中将后7个工作日内根据收货地址寄出；</view>
+    <view class="content">4、实物奖用户请在预约活动结束后3个工作日内前往“个人中心-我的地址” 填写收货地址，逾期未提交视为放弃该奖品，奖品将于中将后7个工作日内根据收货地址寄出；</view>
+    <view class="content">5、优购券，30个工作日内将会在“个人中心-我的优惠券”展示，请注意查收；</view>
+    <view class="content">6. 本活动快递奖品的收货地址仅限中国大陆地区。</view>
+  </view>
+  <view class="item">
+    <view class="title">免责说明：</view>
+    <view class="content">1、中国票务网·聚票仅负责演出票发放，若票品过期中国票务网·聚票不承担任何责任；</view>
+    <view class="content">2.中国票务网·聚票对获奖者及其各自奖品的决定具有最终约束力；</view>
+    <view class="content">3.此活动获奖者接受奖品即表示同意，中国票务网·聚票只负责奖品的采购付款及发放（采购价格以抽奖日该奖品市场价格为准，不含递送费用）；</view>
+    <view class="content">4.活动奖品的领取以用户填写信息为准。若出现冒领等情况，中国票务网·聚票不承担任何责任；</view>
+    <view class="content">5、获奖实物类奖品：在奖品送递过程中发生奖品的损毁偷换或其他情况，由承运方与中奖用户自行解决，中国票务网·聚票不负任何法律责任； </view>
+    <view class="content">6、活动过程中，用户所中奖项，中国票务网·聚票以最终中奖所留地址信息为准寄送奖品，由此引起的任何纠纷，中国票务网·聚票免责；</view>
+    <view class="content">7、活动过程中，若用户中奖后出现因黑客入侵、电脑病毒、信息泄露他人等个人原因而导致奖品被盗用情况发生，中国票务网·聚票不负责追回及补偿。</view>
+  </view>
+</view>

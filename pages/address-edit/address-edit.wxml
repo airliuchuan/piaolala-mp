@@ -1,0 +1,42 @@
+<!--pages/address-edit/address-edit.wxml-->
+<view class="container">
+  <view class="address-edit">
+    <form bindsubmit="formSubmit">
+      <van-cell-group>
+        <van-field name="receiverName" input-class="adr-input" input-align="right" value="{{ receiverName }}" label="用户名" placeholder="请输入收货人姓名" bind:focus="userFocus" bind:blur="userBlur" error="{{userError}}" custom-style="padding: 10px 0;" />
+        <van-field name="phone" input-class="adr-input" value="{{ phone }}" label="手机号" placeholder="请输入收货人手机号" bind:focus="phoneFocus" bind:blur="phoneBlur" type="number" error-message="{{phoneError}}" maxlength="11" custom-style="padding: 10px 0;" />
+        <van-field input-class="adr-input" value="{{provinceName}} {{cityName}} {{countyName}}" bind:tap="toggleBottomPopup" label="省市区" placeholder="选择省市区" disabled custom-style="padding: 10px 0;" />
+        <van-field name="detailedAddress" input-class="adr-input" value="{{ detailedAddress }}" label="地址" type="textarea" placeholder="详细地址，如小区，门牌号等" placeholder-class="textarea-place" autosize maxlength="100" error="{{detailAdrError}}" bind:focus="detailAdrFocus" bind:blur="detailAdrBlur" custom-style="padding: 10px 0;"
+        />
+        <checkbox-group name="status">
+          <label class="checkbox">
+            <checkbox value="1" checked="{{status == 1}}" />设置为默认地址
+          </label>
+        </checkbox-group>
+        <button formType="submit">确定</button>
+      </van-cell-group>
+    </form>
+  </view>
+  <!-- sort model -->
+  <van-popup show="{{showCityModel}}" position="bottom" z-index="5" bind:close="toggleBottomPopup">
+    <picker-view indicator-class="picker-active" value="{{value}}" bindchange="cityChange" data-code='{{item.code}}' class="citybody">
+      <view class="cityheader">
+        <view bindtap="toggleBottomPopup" class="city-cancel">取消</view>
+        <view bindtap="toggleBottomPopup" class="city-true">确定</view>
+      </view>
+      <picker-view-column>
+        <view wx:for="{{provinces}}" wx:key="item" data-code='{{item.code}}' style="line-height: 50px;padding-left:10px;">{{item.name}}</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{citys}}" wx:key="item" data-code='{{item.code}}' style="line-height: 50px;padding-left:10px;">{{item.name}}</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{areas}}" wx:key="item" data-code='{{item.code}}' style="line-height: 50px;padding-left:10px;">{{item.name}}</view>
+      </picker-view-column>
+    </picker-view>
+  </van-popup>
+  <!-- 提示 -->
+  <van-notify id="van-notify" />
+  <van-toast id="van-toast" />
+  <van-dialog id="van-dialog" />
+</view>

@@ -1,0 +1,67 @@
+<!--pages/order-list/order-list.wxml-->
+<view class="container">
+  <view class="tab-wrap">
+    <!-- 顶部导航 -->
+    <van-tabs line-width="{{lineWidth}}" bind:change="onChange" active="{{key}}">
+      <van-tab wx:for="{{tabList}}" wx:key="{{item.id}}" title="{{item.name}}"></van-tab>
+    </van-tabs>
+  </view>
+  <view class="order-list">
+    <block wx:if="{{orderList.length>0}}">
+      <navigator hover-class='none' url="/pages/order-detail/order-detail?id={{item.orderId}}" class="order-item" wx:for="{{orderList}}">
+        <view class="order-title">
+          <view class="order-num">
+            <text>订单编号：{{item.orderNum}}</text>
+            <text class="time">{{item.formatTime}}</text>
+          </view>
+          <view class="order-time" wx:if="{{key==0}}">
+            <i-count-down countdown-class="order-time-text" target="{{item.orderTime}}" format="{{myFormat}}" clear-timer="{{clearTimer}}" i-index="{{index}}" bind:callback="myLinsterner"></i-count-down>剩余支付时间
+          </view>
+          <block wx:if="{{key==0}}">
+            <view class="order-btn timeover" wx:if="{{item.timeover}}">订单取消</view>
+            <view class="order-btn" catchtap='pay' data-order="{{item.orderNum}}" data-type="{{item.deliverType}}" wx:else>立即支付</view>
+          </block>
+        </view>
+        <view class="order-main">
+          <image class="line" mode="widthFix" src="/images/confirm_bj.png"></image>
+          <view class="goods-name clamp-overflow">{{item.goodsName}}</view>
+          <view class="order-info">
+            <view class="order-clamp">
+              <view class="order-clamp-item">
+                <image src="/images/timer_icon.png"></image>
+                <text>{{item.planName}}</text>
+              </view>
+              <view class="order-clamp-item">
+                <image src="/images/city_icon.png"></image>
+                <text>{{item.venueName}}</text>
+              </view>
+              <view class="order-clamp-item">
+                <image src="/images/cars_icon.png"></image>
+                <text>{{item.count}}张</text>
+              </view>
+            </view>
+            <view class='order-price'>合计：￥
+              <text>{{(item.amount)/100}}</text>
+            </view>
+          </view>
+          <view class="error" wx:if="{{status==2 && item.status==8}}">*订单出票失败，请联系客服退款400-810-8080</view>
+          <view class="express" wx:if="{{(status==3 || status==4) && item.deliverType==1}}">
+            <navigator hover-class='none' url="/pages/express/express?orderNum={{item.orderNum}}">查看物流</navigator>
+          </view>
+        </view>
+      </navigator>
+    </block>
+    <!-- no data -->
+    <view class="no-data" wx:if="{{noData}}">
+      <image src="/images/no_order.png"></image>
+      <view class="more">
+        暂无订单，
+        <navigator hover-class='none' url="/pages/category/category">去看看</navigator>
+      </view>
+    </view>
+  </view>
+  <!-- 提示 -->
+  <van-toast id="van-toast" />
+  <van-dialog id="van-dialog" />
+  <i-toast id="toast" i-class="full-toast" i-mask="full-mask"/>
+</view>

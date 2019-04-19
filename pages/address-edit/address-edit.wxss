@@ -1,0 +1,81 @@
+/* pages/address-edit/address-edit.wxss */
+
+.address-edit {
+  padding: 0 30rpx;
+}
+
+.address-edit checkbox-group {
+  padding: 60rpx 0 54rpx;
+}
+
+.address-edit button {
+  height: 80rpx;
+  background-image: linear-gradient(135deg, #20dac6 0, #00a4d8 100%);
+  box-shadow: 0 6rpx 14rpx 0 rgba(4, 171, 214, 0.36);
+  border-radius: 9rpx;
+  font-family: PingFang-SC-Medium;
+  font-size: 32rpx;
+  color: #fff;
+}
+
+.citybody {
+  background: #fff;
+  height: 220px;
+}
+
+.cityheader {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  z-index: 5;
+  background: #fff;
+}
+
+.city-cancel {
+  float: left;
+  margin: 20rpx;
+  color: #828282;
+}
+
+.city-true {
+  float: right;
+  margin: 20rpx;
+  color: #00a4d8;
+}
+
+.section .picker {
+  background-color: #fff;
+  border-bottom: 2px #ccc solid;
+  border-top: 2px #d9d9d9 solid;
+  padding: 20rpx;
+}
+
+.picker-active {
+  height: 50px;
+  color:red;
+}
+
+/* 自定义样式 */
+.van-cell {
+  padding-left: 0;
+  padding-right: 0;
+  min-height: 127rpx;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1rpx solid #dcdcdc;
+  font-size: 32rpx;
+  color: #030303;
+}
+
+.adr-input{
+  font-size: 32rpx;
+  color: #151515!important;
+  text-align: right!important;
+}
+
+.van-field__error-message{
+  text-align: right;
+}
+.textarea-place{
+  text-align: left!important
+}

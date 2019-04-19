@@ -1,0 +1,5 @@
+<!--pages/buy-notes/buy-notes.wxml-->
+<view class="container">
+  <view class="p">1. 为避免快递配送不能及时送达，演出距开场时间少于3天时不提供【快递配送】服务，请您谅解！您可以选择在线支付后上门自取纸质票。</view>
+  <view class="p">2. 凡演出票类商品，开票时间一般为演出前二到四周，正式开票后客服会第一时间短信告知您。</view>
+</view>

@@ -1,0 +1,51 @@
+<!--pages/coupons/coupons.wxml-->
+<view class="container">
+  <view class="tab-wrap">
+    <!-- 顶部导航 -->
+    <van-tabs line-width="{{lineWidth}}" bind:change="onChange" active="{{key}}">
+      <van-tab wx:for="{{tabList}}" wx:key="{{item.id}}" title="{{item.name}}"></van-tab>
+    </van-tabs>
+  </view>
+  <view class='coupon-list' wx:if="{{couponList.length>0}}">
+    <view class='coupon-item' wx:for="{{couponList}}">
+      <view class='coupon-item-main'>
+        <view class='coupon-item-left {{item.useType==1?"store":""}}'>
+          <view class='number'>
+            <label class='number1'>￥</label>
+            <label class='number2'>{{item.money}}</label>
+          </view>
+          <view class='rule'>
+            <block wx:if="{{item.useType==1}}">满{{item.fullMoney}}可用</block>
+            <block wx:else>无门槛</block>
+          </view>
+        </view>
+        <view class='coupon-item-right'>
+          <view class='title text-overflow'>
+            <text>{{item.couponName}}</text>
+            <navigator url="/pages/home/home" open-type='switchTab' class='handle {{item.useType==1?"store":""}}'>立即使用</navigator>
+          </view>
+          <view class="date-group">
+            <view class='desc'> {{item.explain}}</view>
+            <view class='date'>
+              <label>有效期：{{item.startTimeFormat}} - {{item.endTimeFormat}}</label>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='coupon-item-img'>
+        <image src='{{item.useType==1?subTheme:allTheme}}'></image>
+      </view>
+      <view class='cou-badge' wx:if="{{status!=1}}">
+        <image src='{{couponBadge[status]}}'></image>
+      </view>
+    </view>
+  </view>
+  <!-- no data -->
+  <view class="no-data" wx:if="{{noData}}">
+    <image src="/images/no_data.png"></image>
+    <view class="more">暂无可用优惠券</view>
+  </view>
+  <van-toast id="van-toast" />
+  <van-dialog id="van-dialog" />
+  <i-toast id="toast" i-class="full-toast" i-mask="full-mask" />
+</view>

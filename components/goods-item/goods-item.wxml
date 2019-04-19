@@ -1,0 +1,19 @@
+<!--components/goods-item/goods-item.wxml-->
+<view class="goods-item" wx:for="{{list}}">
+  <navigator hover-class='none' url="/pages/goods-choice/goods-choice?id={{item.goodsId}}&price={{item.price}}&ratio={{item.ratio}}">
+    <view class="pic">
+      <image mode="aspectFill" src="{{item.poster}}"></image>
+    </view>
+    <view class="content">
+      <view class="title clamp-overflow">{{item.goodsName}}</view>
+      <view class="desc">
+        <view>{{item.startTimeFormat}}{{item.endTimeFormat?('-'+item.endTimeFormat):''}}<text wx:if="{{item.status==1}}" class="presell">预售</text><text class="sell-num" wx:if="{{item.bussNum>1}}">{{item.bussNum}}家在售</text></view>
+        <view>{{item.venueName}}</view>
+      </view>
+      <view class="bottom">
+        <view class="price">￥<text>{{item.price}}</text>起</view>
+        <view class="buy">{{item.status==1?'立即预订':'立即购买'}}</view>
+      </view>
+    </view>
+  </navigator>
+</view>

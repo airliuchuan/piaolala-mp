@@ -1,0 +1,122 @@
+<!--pages/ranking-detail/ranking-detail.wxml-->
+<view class="container" bindtap='closeShare'>
+  <view class="header">
+    <!-- background -->
+    <image class="blur-bj" mode="aspectFill" src="{{ranking.goodsImg}}"></image>
+    <view class="black-drop"></view>
+    <!-- info -->
+    <view class="pic">
+      <image mode="aspectFill" src="{{ranking.goodsImg}}"></image>
+    </view>
+    <view class="info">
+      <view class="name text-overflow">{{ranking.showName}}</view>
+      <view class="center">
+        <view class="normal">
+          <view class="time">{{ranking.formatTime}}</view>
+          <view class="location">{{ranking.venueName}}</view>
+        </view>
+        <image src="/images/location.png" bindtap='showMap'></image>
+      </view>
+      <view class="sales">
+        <text>{{ranking.buyNum}}</text>人已买
+        <image src="/images/qrcode.png" wx:if="{{ranking.qrImg}}" bindtap='showQrCode'></image>
+      </view>
+      <navigator class="goods-link" hover-class='none' url="/pages/goods-detail/goods-detail?id={{ranking.goodsId}}">查看演出详情 ></navigator>
+    </view>
+  </view>
+  <!-- explain -->
+  <view class="explain-wrap">
+    <image class="bj" src="/images/ranking_bj.png"></image>
+    <view class="explain">
+      <view class="name">上榜理由</view>
+      <view class="desc"> {{ranking.reReason}}</view>
+    </view>
+    <view class="info">
+      <view class="main">
+        <view class="rate">
+          <text class="label">评分</text>
+          <wux-rater icon-class="imoon-hurt" slot="footer" auto="{{false}}" value="{{ranking.star/2}}" font-size="25" activeColor="#FF8777" disabled />
+          <text>{{ranking.star}}分</text>
+        </view>
+        <view class="hot">
+          <text class="label">热度</text>
+          <wux-rater icon-class="imoon-hurt" slot="footer" auto="{{false}}" value="{{ranking.weight/2}}" font-size="25" activeColor="#FF8777" disabled />
+          <text>{{ranking.weight}}分</text>
+        </view>
+      </view>
+      <view class="upper">
+        <block wx:if="{{ranking.price}}">
+          价格
+          <text class="price">{{ranking.price}}</text>
+          <text>元起</text>
+        </block>
+        <block wx:else>
+          暂无价格
+        </block>
+      </view>
+    </view>
+  </view>
+  <view class="detail">
+    <view class="comment-list">
+      <view wx:for="{{ranking.commentList}}" class="comment-item {{(index+1)%2==0?'even':''}}">
+        <image class="adv" src="{{item.avaImg}}"></image>
+        <view class="main">
+          <view class="user-info">{{item.username}}</view>
+          <view class="content">{{item.content}}</view>
+          <image class="mark" src="{{(index+1)%2==0?'/images/comment_right.png':'/images/comment_left.png'}}"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="bottom">
+    <!-- favorite -->
+    <view class="favorite" catchtap='follow'>
+      <block wx:if="{{followStatus==1}}">
+        <image src="/images/fav.png"></image>
+        <text>收藏</text>
+      </block>
+      <block wx:else>
+        <image src="/images/fav_on.png"></image>
+        <text>已收藏</text>
+      </block>
+    </view>
+    <navigator wx:if="{{ranking.price}}" hover-class='none' url="/pages/goods-choice/goods-choice?id={{ranking.goodsId}}&rId={{id}}&price={{ranking.price}}&ratio={{ranking.ratio}}">立即购买</navigator>
+    <view wx:else class="buy-disabled">立即购买</view>
+  </view>
+  <!-- share -->
+  <view class="share {{show?'state':''}}">
+    <view catchtap='toggleShare' class="share-btn">
+      <image class="head {{move?'move':''}}" src="/images/share_head.png"></image>
+      <image class="text" src="{{show?'/images/share_in.png':'/images/share_click.png'}}"></image>
+    </view>
+    <view class="share-group">
+      <view class="share-item" catchtap='openShareModel'>
+        <image src="/images/wechat.png"></image>
+        <text>朋友圈</text>
+      </view>
+      <view class="share-item" catchtap='openShareModel'>
+        <image src="/images/blog.png"></image>
+        <text>微博</text>
+      </view>
+    </view>
+  </view>
+  <!-- popup -->
+  <van-popup show="{{showShare}}" z-index="100" bind:close="closeShareModel">
+    <view class="share-model">
+      <block wx:if="{{qrcode}}">
+        <image mode="widthFix" src="{{ranking.qrImg}}"></image>
+        <button bindtap='saveImgToPhotos'>下载微信群二维码</button>
+      </block>
+      <block wx:if="{{sqcode}}">
+        <image bindtap='showTest' mode="widthFix" src="{{imgSrc}}"></image>
+        <button bindtap='saveImgToPhotos'>保存到相册并分享</button>
+      </block>
+    </view>
+  </van-popup>
+  <van-toast id="van-toast" />
+  <i-toast id="toast" i-class="full-toast" i-mask="full-mask"/>
+</view>
+<view hidden="{{maskHidden}}" class="mask"></view>
+<view class="canvas-box">
+  <canvas style="width: 750px;height: 750px;" canvas-id="mycanvas" />
+</view>

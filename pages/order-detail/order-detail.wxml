@@ -1,0 +1,108 @@
+<!--pages/order-detail/order-detail.wxml-->
+<view class="container">
+  <view class="wrap">
+    <view class="title">
+      <image src="/images/confirm_bj.png"></image>
+      <view class="provider">票品提供方：{{business}}
+        <text wx:if="{{business=='中国票务网'}}">自营</text>
+      </view>
+      <navigator hover-class='none' url="/pages/refund-rule/refund-rule">
+        <van-icon name="info-o" color="#808080" size='24rpx' custom-class="icon" />退赔规则</navigator>
+    </view>
+    <view class="goods-info">
+      <view class="pic">
+        <image mode='aspectFill' src="{{orderDetail.poster}}"></image>
+      </view>
+      <view class="info">
+        <view class="goods-name clamp-overflow">{{goodsName}}</view>
+        <view class="cell">
+          <text class="time">{{orderDetail.planName}}</text>
+          <view class="location">{{orderDetail.venueName}}</view>
+          <view class="price-cell">
+            <view class="price">{{orderDetail.levelAlias}}</view>
+            <view class="num">X
+              <text>{{count}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="goods-total">
+      合计：
+      <text>{{total}}</text>元
+    </view>
+  </view>
+  <view class="detail">
+    <view class="sub-title">订单信息</view>
+    <view class="table">
+      <view class="table-item">
+        <view class="label">订单编号</view>
+        <view class="cell">{{orderNum}}</view>
+      </view>
+      <view class="table-item">
+        <view class="label">下单时间</view>
+        <view class="cell">{{orderTime}}</view>
+      </view>
+      <view class="table-item">
+        <view class="label">订单状态</view>
+        <view class="cell {{orderStatus<2 || orderStatus>4?'status1':'status'}}">{{status[orderStatus]}}
+          <navigator url="/pages/express/express?orderNum={{orderNum}}" hover-class='none' wx:if="{{deliverType==1 && (orderStatus==3 || orderStatus==4)}}">查看物流</navigator>
+          <view class="order-btn" catchtap='pay' wx:if="{{orderStatus==1}}">立即支付</view>
+        </view>
+      </view>
+    </view>
+    <view class="sub-title">
+      <text>配送方式</text>{{deliverTypeJson[deliverType]}}</view>
+    <view class="table">
+      <block wx:if="{{deliverType==1}}">
+        <view class="table-item">
+          <view class="label">姓名</view>
+          <view class="cell">{{receiverName}}</view>
+        </view>
+        <view class="table-item">
+          <view class="label">手机</view>
+          <view class="cell">{{receiverMobile}}</view>
+        </view>
+        <view class="table-item">
+          <view class="label">地址</view>
+          <view class="cell my-adr">{{cityList[orderDetail.adressProvince]}}{{cityList[orderDetail.adressCounty]}}{{cityList[orderDetail.adressCounty]}}{{receiverAddress}}</view>
+        </view>
+      </block>
+      <block wx:else>
+        <view class="table-item">
+          <view class="label">取票人</view>
+          <view class="cell">{{receiverName}}</view>
+        </view>
+        <view class="table-item">
+          <view class="label">取票人手机</view>
+          <view class="cell">{{receiverMobile}}</view>
+        </view>
+      </block>
+    </view>
+    <view class="sub-title">订单明细</view>
+    <view class="table">
+      <view class="table-item">
+        <view class="label">商品金额</view>
+        <view class="cell">{{deliverType==1?(total-10):total}}元</view>
+      </view>
+      <view class="table-item" wx:if="{{deliverType==1}}">
+        <view class="label">快递费</view>
+        <view class="cell">10元</view>
+      </view>
+      <view class="table-item">
+        <view class="label">应付金额</view>
+        <view class="cell">{{total}}元</view>
+      </view>
+    </view>
+    <view class="contact">
+      <button bindtap='makePhoneCall'>
+        <image src="/images/phone.png"></image>
+        <text>400-810-8080</text>
+      </button>
+    </view>
+  </view>
+  <!-- 提示 -->
+  <van-toast id="van-toast" />
+  <van-dialog id="van-dialog" />
+  <i-toast id="toast" i-class="full-toast" i-mask="full-mask"/>
+</view>

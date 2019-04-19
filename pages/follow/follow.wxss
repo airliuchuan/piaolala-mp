@@ -1,0 +1,28 @@
+/* pages/follow/follow.wxss */
+
+.container {
+  background: #f6f6f6;
+  padding-bottom: 12rpx;
+}
+
+.title{
+  padding: 0 50rpx;
+  height:100rpx;
+  line-height: 100rpx;
+  font-size: 26rpx;
+  color:#030303;
+  background: #f6f6f6;
+  display: flex;
+  align-items: baseline;
+}
+.goods-list{
+  background: #fff;
+  padding-top: 38rpx;
+}
+.title .day{
+  font-size: 48rpx;
+}
+.title .year{
+  color:#151515;
+  margin-left:16rpx;
+}

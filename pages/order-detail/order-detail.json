@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "订单详情",
+  "usingComponents": {
+    "van-dialog": "../../components/vant/dialog/index",
+    "van-icon": "../../components/vant/icon/index",
+    "van-toast": "../../components/vant/toast/index",
+    "i-toast": "../../components/i-view/toast/index"
+  }
+}

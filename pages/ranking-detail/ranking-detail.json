@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "榜单详情",
+  "usingComponents": {
+    "wux-rater": "../../components/wux/rater/index",
+    "van-popup": "../../components/vant/popup/index",
+    "van-toast": "../../components/vant/toast/index",
+    "i-toast": "../../components/i-view/toast/index"
+  }
+}

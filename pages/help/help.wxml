@@ -1,0 +1,107 @@
+<!--pages/help/help.wxml-->
+<view class="container">
+  <view class="help">
+    <view class="item">
+      <view class="title">关于票品真实性</view>
+      <view class="content">聚票·中国票务网作为国家工商认证的票务平台，在收到机构和商家的票品后会第一时间核查票品真实性，确保买家利益，确保售出票品100%真实有效。请放心购买。</view>
+    </view>
+    <view class="item">
+      <view class="title">关于演出上线</view>
+      <view class="content">聚票·中国票务网在与主办方确认演出信息后会第一时间在平台上公布上线演出时间。</view>
+    </view>
+    <view class="item">
+      <view class="title">关于溢价问题</view>
+      <view class="content">聚票·中国票务网作为票务交易平台，所有票品均由通过审核的机构或商家进行销售，聚票·中国票务网承诺绝不会通过哄抬价格进行牟取暴利的倒票行为，票价可能会根据演出的市场价格有所浮动，热门演出可能会出现溢价的情况，请确认票价后再进行购买。</view>
+    </view>
+    <view class="item">
+      <view class="title">关于在线选座</view>
+      <view class="content">目前聚票·中国票务网平台部分演出支持在线选座，实际以演出为准。</view>
+    </view>
+    <view class="item">
+      <view class="title">关于是否连座</view>
+      <view class="content">购买时，若票品标注为“连座”：3张以内保证连座，3张以上尽量连座；若标注为“不连座”则表示票品不连座。</view>
+    </view>
+    <view class="item">
+      <view class="title">关于预售问题</view>
+      <view class="content">预售票为演出尚未开票前进行的票务预订。最终票品数量视项目主办方及场馆情况而定，正式开票后商家将根据用户付款先后顺序依次配票；我们会协助商家满足用户需求，如最终未能配票，聚票·中国票务网承诺全额退款，敬请谅解。</view>
+    </view>
+    <view class="item">
+      <view class="title">关于购买数量</view>
+      <view class="content">为了杜绝利用聚票·中国票务网低价票进行倒卖的行为，聚票·中国票务网部分演出线上购票实行2张至6张的限购（详见具体演出详情与票面备注）。如您有团单需求，可以通过聚票·中国票务网客服热线400-810-8080联系客服提供团购服务。</view>
+    </view>
+    <view class="item">
+      <view class="title">关于包邮</view>
+      <view class="content">如果您不是团购客户（一次购票6张以上），快递费按平台统一标准收取(实际产生运费，请以提交订单页显示为准)。如您是团购客户，可致电聚票·中国票务网客服热线400-810-8080进行相关咨询。</view>
+    </view>
+    <view class="item">
+      <view class="title">关于快递</view>
+      <view class="content">用户在聚票·中国票务网购票时可选择普通快递或顺丰快递。快递发出后，用户可在订单详情中查看物流信息。提交订单时请仔细确认收货人信息，避免因个人疏失快递无法及时送达。</view>
+    </view>
+    <view class="item">
+      <view class="title">现场取票</view>
+      <view class="content">如用户选择现场取票，我们将在成功配票后发送含取票码的短信，并在演出开演前将取票联系信息发送至订单联系手机。用户可凭取票码在演出开场前到现场取票点取票入场，请妥善保管取票码及相关信息，以防被他人冒领。</view>
+    </view>
+    <view class="item">
+      <view class="title">上门自取</view>
+      <view class="content">如用户选择上门自取，我们将在成功配票后发送4位数的取票码，用户可凭短信上的取票码于每天（10：00至19：00）到取票地点（以订单信息为准）取票。请妥善保管取票码及相关信息，以防被他人冒领。</view>
+    </view>
+    <view class="item">
+      <view class="title">关于退/换票</view>
+      <view class="content">
+        <view class="s-title">一、无理由退换票品说明</view>
+
+        根据《网络交易管理办法》中关于：“其他根据商品性质并经消费者在购买时确认不宜退货的商品，不适用无理由退货。”的规定，鉴于文体演出票品特殊性，演出门票为联网售票，门票和座位都是唯一的，具有时效性、唯一性、数字化等特殊属性，一旦票品售出，除因不可抗力因素导致演出取消或延期，其他订单不支持无理由退换，请您在购买时务必仔细核对您的订单信息并审慎下单。
+
+        <view class="s-title">二、不可抗力因素</view>
+
+        <view class="s-content">1、因不可抗力因素导致演出取消或延期，中国票务网及中国票务网旗下品牌聚票会主动与您确认变更或退款事宜，不收取任何手续费。</view>
+        <view class="s-content"> 2、办理退款或变更要求需符合时间规定（依据：主办方通知的因演出取消/延期安排的退款时间、转场时间段），并将票品完好无损退回。</view>
+
+        <view class="s-title">三、退换货收费规则</view>
+
+        <view class="s-content">非不可抗力情况下，聚票·中国票务网根据项目提供不同的退换货服务，确认订单时请留意项目“退换货说明”，确认后购买：</view>
+
+        <view class="s-content">特殊项目不支持退换</view>
+
+        <view class="s-content">1. 订单一旦生成均不接受任何理由的退换。</view>
+
+        <view class="s-content">不支持无条件退款</view>
+
+        <view class="s-content">2、支付成功后：</view>
+
+        <view class="s-content">（1）距离演出结束大于30天，且演出未开票：收取订单商品金额10%的手续费；</view>
+
+        <view class="s-content">（2）距离演出结束大于30天，且演出已开票：收取订单商品金额30%的手续费；</view>
+
+        <view class="s-content">（3）距离演出结束小于等于30天：收取订单商品金额50%的手续费；</view>
+
+        <view class="s-content">（4）距离演出结束小于等于7天：聚票·中国票务网不支持退票。</view>
+
+        <view class="s-content">3、若订单已发货，需先将票品寄回，聚票·中国票务网收到票品后，以上规则操作退款；规则涉及距离开演前日期以聚票·中国票务网收到票品日期为准。</view>
+
+        <view class="s-title">四、退款时间及退款方式</view>
+
+        <view class="s-content">1、未出票情况下客户申请退款，自受理客户退款申请之日起，7个工作日内将款项原路退回到客户的账户中；</view>
+
+        <view class="s-content">2、已出票情况下客户申请退款，自收到客户返回票品之日起，7个工作日内将款项原路退回到客户的账户中。</view>
+
+        <view class="s-title">五、特别说明</view>
+
+        <view class="s-content">1、个别项目或活动商品可能不适用“退换货收费规则”的变更或退款，具体以各商品购买须知或活动规则为准；</view>
+
+        <view class="s-content">2、本承诺有效期自发布日起，至聚票·中国票务网发布更新版本为止。</view>
+      </view>
+    </view>
+    <view class="item">
+      <view class="title">关于退款</view>
+      <view class="content">如果发生需要退款的情况，聚票·中国票务网将通过用户购票时选择的支付通道原路退还给用户。一般情况下，聚票·中国票务网在确认退款后的三个工作日内发起原路退还，实际到账时间由支付通道决定。非纸类电子票暂不支持退款。 为了确保广大用户的利益，对于异常订购行为，聚票·中国票务网及聚票·中国票务网旗下品牌聚票·中国票务网有权取消相应订单。</view>
+    </view>
+     <view class="item">
+      <view class="title">关于无票退款</view>
+      <view class="content">经聚票·中国票务网核实是由于卖家原因导致用户最终无法获得所定票品，按如下规则进行退款：提前通知无法提供用户票品，订单退款。</view>
+    </view>
+    <view class="item">
+      <view class="content">本条款最终解释权归北京艺术工匠文化发展有限公司所有。</view>
+    </view>
+  </view>
+</view>

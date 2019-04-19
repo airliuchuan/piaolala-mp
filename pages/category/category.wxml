@@ -1,0 +1,65 @@
+<!--pages/category/category.wxml-->
+<view class="container {{showCityModel?'container-overflow':''}}">
+  <!-- header -->
+  <view class="tab-wrap">
+    <!-- 顶部导航 -->
+    <van-tabs line-width="{{lineWidth}}" bind:change="onChange" active="{{cateIndex}}">
+      <van-tab wx:for="{{tabList}}" wx:key="{{item.id}}" title="{{item.name}}"></van-tab>
+    </van-tabs>
+    <!-- 二级导航 -->
+    <view class="sub-tab">
+      <view class="sub-tab-item {{showCityModel?'sub-tab-active':''}}" data-id="{{cityId}}" data-index="0" bindtap='getCurrentSubItem'>
+        <text>{{currentCity}}</text>
+        <image src="/images/{{showCityModel?'arrow_up':'arrow_down'}}.png"></image>
+      </view>
+      <view class="sub-tab-item {{showSortModel?'sub-tab-active':''}}" data-index="1" bindtap="getCurrentSubItem">
+        <text>{{sortName}}</text>
+        <image src="/images/{{showSortModel?'arrow_up':'arrow_down'}}.png"></image>
+      </view>
+      <view class="sub-tab-item {{showTimeModel?'sub-tab-active':''}}" data-index="2" bindtap='getCurrentSubItem'>
+        <text>{{timeName}}</text>
+        <image src="/images/{{showTimeModel?'arrow_up':'arrow_down'}}.png"></image>
+      </view>
+    </view>
+  </view>
+  <!-- list -->
+  <view class="goods-list">
+    <block wx:if="{{goodsList.length>0}}">
+      <goods-item list="{{goodsList}}"></goods-item>
+    </block>
+    <view class="no-data" wx:if="{{noData}}">
+      <image src="/images/no_data.png"></image>
+      <view class="more">
+        <view class="text">哎呀，没有搜到你想要看的演出</view>
+      </view>
+    </view>
+    <view class="copyright" wx:else>
+      <block wx:if="{{loadMore}}">上滑加载更多……</block>
+      <block wx:else>没有更多了</block>
+    </view>
+  </view>
+  <!-- model -->
+  <block>
+    <!-- city model -->
+    <city top="152" show="{{showCityModel}}" current-city="{{currentCity}}" city-code="{{cityCode}}" bind:changeItem="changeCitySubItem"></city>
+    <!-- sort model -->
+    <van-popup show="{{showSortModel}}" position="top" custom-class="top" z-index="5" bind:close="toggleTopPopup">
+      <view class="list">
+        <view wx:for="{{sortList}}" class="item {{sort==item.id?'item-active':''}}" wx:key="{{item.id}}" data-index="{{index}}" bindtap='changeSortSubItem'>
+          <text>{{item.name}}</text>
+          <icon type="success_no_circle" color="#00A4D8" size='20' wx:if="{{sort==item.id}}"></icon>
+        </view>
+      </view>
+    </van-popup>
+    <!-- sort model -->
+    <van-popup show="{{showTimeModel}}" position="top" custom-class="top" z-index="5" bind:close="toggleTopPopup">
+      <view class="list">
+        <view wx:for="{{timeList}}" class="item {{time==item.id?'item-active':''}}" wx:key="{{item.id}}" data-index="{{index}}" bindtap='changeTimeSubItem'>
+          <text>{{item.name}}</text>
+          <icon type="success_no_circle" color="#00A4D8" size='20' wx:if="{{time==item.id}}"></icon>
+        </view>
+      </view>
+    </van-popup>
+  </block>
+  <i-toast id="toast" i-class="full-toast" i-mask="full-mask"/>
+</view>

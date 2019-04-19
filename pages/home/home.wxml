@@ -1,0 +1,104 @@
+<!--pages/home/home.wxml-->
+<wxs src="../../filter/computed.wxs" module="computed" />
+<view class="container {{showCityModel?'container-overflow':''}}">
+  <!-- header -->
+  <view class="header">
+    <view class="location" bindtap='showCityModel'>
+      <image src="/images/location_icon.png"></image>
+      <view class="city" data-id="{{cityId}}">{{currentCity}}</view>
+      <image src="/images/{{showCityModel?'arrow_up':'arrow_down'}}.png"></image>
+    </view>
+    <navigator class="search-wrap box-sizing" url="/pages/search/search">
+      <image class="icon" src="/images/search_icon.png"></image>
+      <text>搜索明星、演出、场馆</text>
+    </navigator>
+  </view>
+  <!-- cate -->
+  <scroll-view scroll-x="true" class="cate-scroll" scroll-with-animation="true">
+    <view class="cate">
+      <view class="cate-item" wx:for="{{cateList}}" data-index="{{index}}" data-id="{{item.id}}" bindtap='selCateId'>
+        <image src="{{item.imgUrl}}"></image>
+        <text>{{item.name}}</text>
+      </view>
+    </view>
+  </scroll-view>
+  <!-- swiper -->
+  <swiper class="swiper-box" indicator-dots="{{swiper.indicatorDots}}" autoplay="{{swiper.autoplay}}" interval="{{swiper.interval}}" duration="{{swiper.duration}}" circular="{{swiper.circular}}" wx:if="{{bannerList.length>0}}">
+    <block wx:for="{{bannerList}}">
+      <swiper-item>
+        <navigator url="/pages/goods-choice/goods-choice?id={{item.url}}" hover-class='none'>
+          <image src="{{item.wapImg}}" class="slide-image" data-id="{{item.goodsId}}" />
+        </navigator>
+      </swiper-item>
+    </block>
+  </swiper>
+  <!-- ranking list -->
+  <block wx:if="{{rankingList.length>0}}">
+    <!-- title -->
+    <view class="title-ranking">
+      <image src="/images/ranking.png"></image>
+    </view>
+    <view class="ranking-list">
+      <view class="ranking-item" wx:for="{{rankingList}}">
+        <navigator url="/pages/ranking/ranking?id={{item.recId}}&title={{item.title}}&rgb={{item.bgRgb}}&color={{item.titleColor}}" class="ranking-left" hover-class='none' style="background:{{item.backColor}}">
+          <view class="title" style="color:{{item.titleColor}}">{{item.title}}</view>
+          <view class="desc" style="color:{{item.titleColor}}">{{item.subtitle}}</view>
+          <view class="labels">
+            <view wx:for="{{item.recLabel}}" wx:for-item="itemLabel" style="color:{{item.titleColor}};border-color:{{item.titleColor}}">{{itemLabel}}</view>
+          </view>
+          <view class="pic">
+            <image class="goods-img" mode='aspectFill' src="{{item.goods[0].goodsImg}}"></image>
+            <image class="ranking-icon" src="/images/ranking_icon.png"></image>
+          </view>
+        </navigator>
+        <view class="ranking-right" style="background:rgba({{item.bgRgb}},{{rankingOpa}})">
+          <navigator class="item" wx:for="{{item.goods}}" wx:for-index="goodsIndex" wx:for-item="goodsItem" wx:if="{{goodsIndex<5}}" hover-class="none" url="/pages/ranking-detail/ranking-detail?id={{goodsItem.recGoId}}&goodsId={{goodsItem.goodsId}}">
+            <view class="pic">
+              <image class="goods-img" mode='aspectFill' src="{{goodsItem.goodsImg}}"></image>
+              <view class="ranking-text">
+                <view class="text">TOP</view>
+                <view class="num" style="color:rgb({{item.bgRgb}})">{{goodsIndex+1}}</view>
+              </view>
+            </view>
+            <view class="goods-info">
+              <view class="goods-name text-overflow">{{goodsItem.showName}}</view>
+              <view class="rate">
+                <wux-rater icon-class="imoon-hurt" slot="footer" auto="{{false}}" value="{{goodsItem.star/20}}" font-size="20" activeColor="#FF8777" disabled />
+                <text>{{computed.fixed(goodsItem.star/10,1)}}</text>
+              </view>
+            </view>
+          </navigator>
+        </view>
+      </view>
+    </view>
+  </block>
+  <!-- goods list -->
+  <block wx:if="{{goodsList.length>0}}">
+    <!-- title -->
+    <view class="title-hot">
+      <text>热门演出</text>
+      <image src="/images/hot.png"></image>
+    </view>
+    <view class="goods-list">
+      <block>
+        <goods-item list="{{goodsList}}"></goods-item>
+      </block>
+      <view class="copyright">
+        <block wx:if="{{loadMore}}">上滑加载更多……</block>
+        <block wx:else>没有更多了</block>
+      </view>
+    </view>
+  </block>
+  <!-- no data -->
+  <view class="no-data" wx:if="{{noData && noGoodsData}}">
+    <image src="/images/no_data.png"></image>
+    <view class="more">
+      <view class="text">该城市暂无数据</view>
+    </view>
+  </view>
+  <!-- city -->
+  <city top="74" show="{{showCityModel}}" current-city="{{currentCity}}" city-code="{{cityCode}}" bind:changeItem="changeCity"></city>
+  <!-- 提示 -->
+  <van-toast id="van-toast" />
+  <i-toast id="toast" i-class="full-toast" i-mask="full-mask" />
+</view>

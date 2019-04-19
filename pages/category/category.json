@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "分类",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "van-tab": "../../components/vant/tab/index",
+    "van-tabs": "../../components/vant/tabs/index",
+    "van-popup": "../../components/vant/popup/index",
+    "city": "../../components/city/city",
+    "goods-item": "../../components/goods-item/goods-item",
+    "i-toast": "../../components/i-view/toast/index"
+  }
+}

@@ -1,0 +1,17 @@
+<!--pages/przie/przie.wxml-->
+<view class="container">
+  <view class="rule">
+    <navigator url="/pages/prize-rule/prize-rule" hover-class='none'>活动规则</navigator>
+  </view>
+  <view class="main">
+    <roulette options="{{rouletteData}}" angel="{{angel}}" bind:getAngel="getAngel" bind:getPrize="getPrize" />
+  </view>
+  <view class="count">剩余抽奖次数：{{lotteryNum}}次</view>
+  <view class="content"></view>
+  <view class="share">
+    <button open-type='share'>分享给好友,获取抽奖次数</button>
+  </view>
+  <i-toast id="toast" i-class="full-toast" i-mask="full-mask" />
+  <van-toast id="van-toast" />
+</view>
+

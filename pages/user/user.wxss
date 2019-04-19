@@ -1,0 +1,109 @@
+/* pages/user/user.wxss */
+
+.user-info {
+  width: 100%;
+  height: 220rpx;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  box-sizing: border-box;
+  padding: 0 40rpx;
+  border-bottom:1rpx solid #dcdcdc;
+}
+
+.user-info .bj {
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+}
+
+.user-info .user-head {
+  display: flex;
+  align-items: center;
+}
+.user-info .user-head .user-name{
+  font-size: 36rpx;
+  color:#09c;
+  margin-left:40rpx;
+  font-weight: bold;
+}
+.user-head .user-avatar {
+  display: block;
+  overflow: hidden;
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  z-index: 999;
+}
+
+.user-info .user-name {
+  font-size: 32rpx;
+  color: #fff;
+}
+
+.user-info .login {
+  background: transparent;
+  border: 1rpx solid #09c;
+  border-radius: 74rpx;
+  width: 185rpx;
+  height: 60rpx;
+  text-align: center;
+  line-height: 60rpx;
+  color: #09c;
+  font-size: 30rpx;
+  margin:0;
+}
+
+.list {
+  margin-bottom: 50rpx;
+}
+
+.list .item {
+  display: flex;
+  align-items: center;
+  padding-left: 58rpx;
+  padding-right: 0;
+}
+
+.list .item .icon {
+  width: 60rpx;
+  height: 60rpx;
+  margin-right: 32rpx;
+}
+
+.list .item .content {
+  flex: 1;
+  height: 120rpx;
+  font-size: 34rpx;
+  color: #030303;
+  box-sizing: border-box;
+  border-bottom: 1rpx solid #dcdcdc;
+  background: #fff;
+  display: flex;
+}
+
+button.item {
+  background: #fff;
+  text-align: left;
+}
+
+.content text {
+  position: relative;
+  min-width:136rpx;
+  height: 120rpx;
+  line-height: 120rpx;
+  border-bottom: 1rpx solid #09c;
+  box-sizing: border-box;
+}
+.wechat-sub{
+  border:1rpx solid #09c;
+  margin:20rpx 30rpx 0;
+  border-radius: 20rpx;
+  overflow: hidden;
+  display: none;
+}
+.wechat-sub.show{
+  display: block;
+}

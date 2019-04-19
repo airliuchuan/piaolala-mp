@@ -1,0 +1,38 @@
+/* pages/pay-success/pay-success.wxss */
+
+.icon {
+  width: 180rpx;
+  height: 180rpx;
+  padding: 194rpx 0 74rpx;
+  margin: 0 auto;
+}
+
+.icon image {
+  width: 100%;
+  height: 100%;
+}
+
+.title {
+  margin-bottom: 74rpx;
+  font-size: 40rpx;
+  color: #151515;
+  line-height: 60rpx;
+  text-align: center;
+}
+
+.action {
+  padding: 0 92rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.action navigator {
+  width: 250rpx;
+  height: 80rpx;
+  border: 2rpx solid #dcdcdc;
+  border-radius: 10rpx;
+  font-size: 30rpx;
+  color: #151515;
+  line-height: 80rpx;
+  text-align: center;
+}

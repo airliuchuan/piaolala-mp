@@ -1,0 +1,36 @@
+<!--pages/show/show.wxml-->
+<view class="container">
+  <!-- <view class="title">
+    <text>精彩预售</text>
+    <navigator url="/pages/category/category" hover-class='none' open-type='switchTab'>More ></navigator>
+  </view>
+  <swiper class="swiper-block" previous-margin="220rpx" next-margin="220rpx" current="1" bindchange="swiperChange" indicator-dots="{{swiper.indicatorDots}}" autoplay="{{swiper.autoplay}}" interval="{{swiper.interval}}" duration="{{swiper.duration}}" circular="{{swiper.circular}}">
+    <block wx:for="{{Images}}" wx:index="{{index}} ">
+      <swiper-item class="swiper-item {{swiperIndex== index? 'active' : ''}} ">
+        <navigator hover-class='none'>
+          <image mode="aspectFill" src="{{item.url}}" class="slide-image" />
+        </navigator>
+      </swiper-item>
+    </block>
+  </swiper> -->
+  <view class="title">
+    <text>为您推荐</text>
+    <navigator url="/pages/category/category" hover-class='none'>More ></navigator>
+  </view>
+  <view class="goods-list">
+    <block wx:if="{{goodsList.length>0}}">
+      <goods-item list="{{goodsList}}"></goods-item>
+    </block>
+    <view class="no-data" wx:if="{{noData}}">
+      <image src="/images/no_data.png"></image>
+      <view class="more">
+        <view class="text">哎呀，没有搜到你想要看的演出</view>
+      </view>
+    </view>
+    <view class="copyright" wx:else>
+      <block wx:if="{{loadMore}}">上滑加载更多……</block>
+      <block wx:else>没有更多了</block>
+    </view>
+  </view>
+  <i-toast id="toast" i-class="full-toast" i-mask="full-mask"/>
+</view>

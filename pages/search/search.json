@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "搜索",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "van-search": "../../components/vant/search/index",
+    "van-icon": "../../components/vant/icon/index",
+    "goods-item": "../../components/goods-item/goods-item"
+  }
+}

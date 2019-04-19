@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "我的地址",
+  "usingComponents": {
+    "van-dialog": "../../components/vant/dialog/index",
+    "van-toast": "../../components/vant/toast/index"
+  }
+}

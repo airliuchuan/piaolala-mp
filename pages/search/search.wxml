@@ -1,0 +1,45 @@
+<!--pages/search/search.wxml-->
+<view class="container">
+  <view class="search-top">
+    <van-search background="#fff" input-class="input-search" value="{{ keyWords }}" placeholder="搜索明星、演出、场馆" show-action bind:search="onSearch" bind:change="onChange" bind:cancel="onCancel" />
+  </view>
+  <view class="search-wrap" wx:if="{{!keyWords}}">
+    <view class="title">热门搜索</view>
+    <view class="hot">
+      <view wx:for="{{hotList}}" class="hot-item" bindtap='searchItem' data-words="{{item}}">{{item}}</view>
+    </view>
+    <block wx:if="{{historyList.length>0}}">
+      <view class="title">搜索记录</view>
+      <view class="history">
+        <view wx:for="{{historyList}}" class="history-item" bindtap='searchItem' data-words="{{item}}">
+          <text>{{item}}</text>
+          <view class="icon" catchtap='removeItem' data-index="{{index}}">
+            <van-icon name="clear" />
+          </view>
+        </view>
+      </view>
+      <view class="clear" bindtap='clearHistory'>清空搜索记录</view>
+    </block>
+  </view>
+  <view class="list" wx:else>
+    <view class="count">
+      <view class="line"></view>
+      <text>共找到{{total}}条演出</text>
+      <view class="line"></view>
+    </view>
+    <block wx:if="{{searchList.length>0}}">
+      <goods-item list="{{searchList}}"></goods-item>
+    </block>
+    <view class="no-data" wx:if="{{noData}}">
+      <image src="/images/no_data.png"></image>
+      <view class="more">
+        <view class="text">哎呀，没有搜到你想要看的演出</view>
+        <!-- <navigator hover-class='none' url="/pages/category/category" open-type='switchTab'>看看别的~~</navigator> -->
+      </view>
+    </view>
+    <view class="copyright" wx:else>
+      <block wx:if="{{loadMore}}">上滑加载更多……</block>
+      <block wx:else>没有更多了</block>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,8 @@
+<!--pages/goods-detail/goods-detail.wxml-->
+<import src="../../wxParse/wxParse.wxml" />
+<view class="container">
+  <view class="detail">
+    <template is="wxParse" data="{{wxParseData:article.nodes}}"></template>
+  </view>
+  <i-toast id="toast" i-class="full-toast" i-mask="full-mask"/>
+</view>

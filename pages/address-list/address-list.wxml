@@ -1,0 +1,37 @@
+<!--pages/address-list/address-list.wxml-->
+<view class="container">
+  <view class="address-list">
+    <block wx:if="{{adrList.length>0}}">
+      <view class="item" wx:for="{{adrList}}" data-index="{{index}}" bindtap='chooseAddress'>
+        <view class="user-info">
+          <text>{{item.receiverName}}</text>
+          <text>{{item.phone}}</text>
+        </view>
+        <view class="address-info">{{cityList[item.provinceId]}}{{cityList[item.cityId]}}{{cityList[item.countyId]}}{{item.detailedAddress}}</view>
+        <view class="bottom">
+          <view class="edit" data-id="{{item.addressId}}" catchtap='editAddress'>
+            <image src="/images/edit.png"></image>
+            <text>修改地址</text>
+          </view>
+          <view class="del" data-id="{{item.addressId}}" catchtap='delAddress' wx:if="{{openType != 1}}">
+            <image src="/images/del.png"></image>
+            <text>删除</text>
+          </view>
+        </view>
+        <image wx:if="{{item.status == 1}}" class="default" src="/images/adr_default.png"></image>
+      </view>
+    </block>
+    <view class="no-data" wx:if="{{noData}}">
+      <image src="/images/no_order.png"></image>
+      <view class="more">
+        <view class="text">您还没有设置地址~</view>
+      </view>
+    </view>
+  </view>
+  <view class="address-edit">
+    <navigator class="edit" url="/pages/address-edit/address-edit">+添加地址</navigator>
+  </view>
+  <!-- 提示 -->
+  <van-dialog id="van-dialog"/>
+  <van-toast id="van-toast" />
+</view>

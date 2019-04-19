@@ -1,0 +1,107 @@
+<wxs src="../../filter/computed.wxs" module="computed" />
+<!--pages/goods-choice/goods-choice.wxml-->
+<view class="container">
+  <view class="header">
+    <!-- background -->
+    <image class="blur-bj" mode="aspectFill" src="{{goods.poster}}"></image>
+    <view class="black-drop"></view>
+    <!-- info -->
+    <view class="pic">
+      <image mode="aspectFill" src="{{goods.poster}}"></image>
+    </view>
+    <view class="info">
+      <view class="name clamp-overflow">{{goods.goodsName}}</view>
+      <view class="center">
+        <view class="normal">
+          <view class="time">{{goods.startTimeFormat}}{{goods.endTimeFormat?('-'+goods.endTimeFormat):''}}</view>
+          <view class="location">{{goods.venueName}}</view>
+        </view>
+        <image src="/images/location.png" bindtap='showMap'></image>
+      </view>
+      <view class="price">
+        <view>
+          <text>{{goods.price}}</text>起
+        </view>
+        <image wx:if="{{!rId}}" catchtap='follow' src="{{followStatus==1?'/images/fav1.png':'/images/fav_on1.png'}}"></image>
+      </view>
+    </view>
+  </view>
+  <view class="detail">
+    <view class="explain">
+      <view class="state">
+        <view class="item">
+          <image src="/images/secure.png"></image>
+          <text>真票保障</text>
+        </view>
+        <view class="item">
+          <image src="/images/safe.png"></image>
+          <text>安全保障</text>
+        </view>
+        <view class="item">
+          <image src="/images/refund.png"></image>
+          <text>退票保障</text>
+        </view>
+      </view>
+      <navigator url="/pages/buy-notes/buy-notes">购票须知</navigator>
+    </view>
+    <navigator url="/pages/goods-detail/goods-detail?id={{id}}" class="goods-link" hover-class='none' wx:if="{{!rId}}">
+      <text>演出详情</text>
+      <van-icon name="arrow" color="#bababa;" size='20rpx' />
+    </navigator>
+    <view class="title">选择时间</view>
+    <navigator wx:if="{{attrList.length>1}}" hover-class='none' url="/pages/calendar/calendar?id={{id}}&planId={{planId}}&planIndex={{planIndex}}" class="sel-time">{{planName}}
+      <image src="/images/arrow_down.png"></image>
+    </navigator>
+    <!-- bindtap='toggleBottomPopup' -->
+    <view class="sel-time" wx:else>{{planName}}</view>
+    <view class="title">选择票档</view>
+    <view class="sel-price">
+      <view wx:for="{{priceList}}" data-index="{{index}}" class="price-item {{item.priceArr.length>0?(index == planInfo.index ?'price-active':''):'price-disabled'}}" bindtap="confirmPrice">
+        {{item.levelAlias}}
+      </view>
+    </view>
+    <view class="title title-top">选择商家</view>
+    <view class="sel-business">
+      <view wx:for="{{priceList[planInfo.index].priceArr}}" class="item {{item.status==1?(index == planInfo.key?'active':''):'disabled'}}" data-index="{{index}}" bindtap='confirmBrand'>
+        <view class="name">{{item.company}}
+          <text class="label" wx:if="{{false}}">已认证</text>
+        </view>
+        <view class="price">{{computed.getPrice(item.quotePrice,goods.ratio)}}元</view>
+      </view>
+    </view>
+    <view class="title">选择数量</view>
+    <view class="sel-num">
+      <view class="unit">{{planInfo.price}}元</view>
+      <view class="change-num">
+        <van-stepper value="{{ planInfo.num }}" disable-input plus-class="step-button" minus-class="step-button" input-class="input-num" integer max="{{planInfo.stock?(planInfo.stock<6?planInfo.stock:6):0}}" bind:change="onChange" />
+      </view>
+    </view>
+  </view>
+  <view class="bottom">
+    <view class="total">合计：
+      <text class="show-price" wx:if="{{planInfo.levelTotal>planInfo.total}}">{{planInfo.levelTotal}}</text>
+      <text class="price">{{planInfo.total}}</text>
+    </view>
+    <view class="action">
+      <view class="unit">{{planInfo.price}}元/张</view>
+      <button class="choice" bindtap='choiceConfirm'>去下单</button>
+    </view>
+  </view>
+  <!-- sort model -->
+  <van-popup show="{{showPlanModel}}" position="bottom" bind:close="toggleBottomPopup">
+    <view class="toolbar">
+      <view class="cancel" bindtap='toggleBottomPopup'>取消</view>
+      <view class="tip">请选择</view>
+      <view class="confirm"></view>
+    </view>
+    <scroll-view class="content" scroll-y="true">
+      <view wx:for="{{attrList}}" data-index="{{index}}" class="item {{item.planId == planId?'item-active':''}}" bindtap='changePlan'>
+        <text>{{item.planName}}</text>
+        <icon wx:if="{{item.planId == planId}}" color='#00A4D8' size='20' type="success_no_circle"></icon>
+      </view>
+    </scroll-view>
+  </van-popup>
+  <!-- 提示 -->
+  <van-toast id="van-toast" />
+  <i-toast id="toast" i-class="full-toast" i-mask="full-mask"/>
+</view>

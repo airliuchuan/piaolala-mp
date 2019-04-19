@@ -1,0 +1,80 @@
+/* pages/search/search.wxss */
+
+.container {
+  box-sizing: border-box;
+  padding-top: 100rpx;
+}
+
+.search-top {
+  position: fixed;
+  width: 100%;
+  box-sizing: border-box;
+  left: 0;
+  top: 0;
+}
+
+.search-wrap {
+  padding: 0 30rpx;
+}
+
+.search-wrap .title {
+  font-size: 28rpx;
+  color: #808080;
+  line-height: 80rpx;
+}
+
+.hot {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.hot-item {
+  padding: 0 30rpx;
+  text-align: center;
+  line-height: 64rpx;
+  background: #fff;
+  border: 1px solid #dcdcdc;
+  border-radius: 10rpx;
+  margin-right: 30rpx;
+  margin-bottom: 30rpx;
+  color: #151515;
+}
+
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 20rpx;
+  line-height: 80rpx;
+  border-bottom: 1rpx solid #dcdcdc;
+  font-size: 30rpx;
+}
+
+.history-item .icon {
+  padding:0 20rpx;
+  box-sizing: border-box;
+  padding-top: 10rpx;
+}
+
+.clear {
+  margin-top: 20rpx;
+  line-height: 80rpx;
+  font-size: 26rpx;
+  text-align: center;
+  color: #02a7d7;
+}
+.count{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 45rpx;
+}
+.count .line{
+  width:72rpx;
+  height:1rpx;
+  background: #808080;
+}
+.count text{
+  font-size: 24rpx;
+  color:#808080;
+  margin:0 10rpx;
+}

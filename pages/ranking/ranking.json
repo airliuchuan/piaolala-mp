@@ -1,0 +1,8 @@
+{
+  "enablePullDownRefresh": true,
+  "navigationBarTitleText": "",
+  "usingComponents": {
+    "wux-rater": "../../components/wux/rater/index",
+    "i-toast": "../../components/i-view/toast/index"
+  }
+}

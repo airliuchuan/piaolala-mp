@@ -1,0 +1,189 @@
+.container {
+  background: #f5f5f5;
+}
+
+.days-table {
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+.calendar {
+  width: 100%;
+  background: #fff;
+}
+
+.week-row {
+  width: 100%;
+}
+
+.grid {
+  /* width: 107.14rpx; */
+  width: 14.28%;
+  height: 100rpx;
+  text-align: center;
+  line-height: 100rpx;
+  font-size: 32rpx;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.week-row .grid {
+  font-size: 24rpx;
+  color: #030303;
+  line-height: 75rpx;
+  height: 75rpx;
+}
+
+.today>view::after {
+  content: '';
+  display: block;
+  width: 8rpx;
+  height: 8rpx;
+  border-radius: 50%;
+  margin: -15rpx auto;
+  background: #09c;
+}
+
+.grid view {
+  height: 70rpx;
+  line-height: 70rpx;
+  width: 70rpx;
+  border: 1px solid transparent;
+  box-sizing: border-box;
+}
+
+.choice view {
+  border-radius: 50%;
+  border-color: #09c;
+  background-position: center;
+  color: #09c;
+}
+
+/* 非本月日期 */
+
+.notCurrent {
+  color: silver;
+}
+
+.day-hover {
+  background: red;
+}
+
+.swpier-box {
+  height: 600rpx;
+  padding-bottom: 30rpx;
+  width: 100%;
+}
+
+.arrow {
+  width: 100rpx;
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+}
+
+/* 轴向 */
+
+.column {
+  flex-direction: column;
+}
+
+/* 主轴方向 */
+
+.m-start {
+  justify-content: flex-start;
+}
+
+.m-end {
+  justify-content: flex-end;
+}
+
+.m-around {
+  justify-content: space-around;
+}
+
+.m-between {
+  justify-content: space-between;
+}
+
+.m-center {
+  justify-content: center;
+}
+
+/* 侧轴方向 */
+
+.s-start {
+  align-items: flex-start;
+}
+
+.s-end {
+  align-items: flex-end;
+}
+
+.s-around {
+  align-items: space-around;
+}
+
+.s-between {
+  align-items: space-between;
+}
+
+.s-center {
+  align-items: center;
+}
+
+.plan-list {
+  padding: 26rpx 30rpx 120rpx;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.plan-list .item {
+  flex: 0 0 298rpx;
+  width: 298rpx;
+  line-height: 48rpx;
+  text-align: center;
+  border: 1rpx solid transparent;
+  box-sizing: border-box;
+  padding: 14rpx 30rpx;
+  border-radius: 17rpx;
+  color: #151515;
+  margin-bottom: 30rpx;
+}
+
+.plan-list .item.active {
+  border-color: #09c;
+  color: #09c;
+}
+
+.bottom {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+
+.bottom button {
+  border-radius: 0;
+  background-image: linear-gradient(135deg, #27dcc6 0%, #03a8d7 100%);
+  color: #fff;
+  font-size: 32rpx;
+  line-height: 98rpx;
+}
+.month{
+  padding-left: 30rpx;
+  background: #fff;
+  height:100rpx;
+  color:#808080;
+  font-size: 30rpx;
+}
+.month text{
+  font-size: 48rpx;
+  color:#09c;
+  margin-right:20rpx;
+}

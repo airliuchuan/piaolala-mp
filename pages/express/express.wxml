@@ -1,0 +1,14 @@
+<!--pages/express/express.wxml-->
+<view class="container">
+  <view class="header">
+    <image mode='aspectFill' src="/images/express_bj.png"></image>
+    <view class="main">
+      <view class="express-num">物流单号：{{expressNum}}</view>
+      <view class="status">{{status[expressStatus]}}</view>
+    </view>
+  </view>
+  <van-steps steps="{{ steps }}" active="{{ active }}" direction="vertical" active-color="#151515" />
+  <!-- 提示 -->
+  <van-toast id="van-toast" />
+  <i-toast id="toast" i-class="full-toast" i-mask="full-mask"/>
+</view>

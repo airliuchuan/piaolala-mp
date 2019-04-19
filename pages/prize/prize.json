@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "幸运抽奖",
+  "usingComponents": {
+    "van-toast": "../../components/vant/toast/index",
+    "roulette": "../../components/roulette/roulette",
+    "i-toast": "../../components/i-view/toast/index"
+  }
+}

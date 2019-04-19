@@ -1,0 +1,146 @@
+/* pages/order-list/order-list.wxss */
+.tab-wrap{
+  padding-bottom: 16rpx;
+}
+.order-list {
+  padding: 130rpx 30rpx 20rpx;
+}
+
+.order-item {
+  border-radius: 20rpx;
+  margin-bottom: 40rpx;
+  box-shadow: 0 6px 30px 0 rgba(0, 0, 0, 0.06);
+  background: #E5F3F6;
+}
+
+.order-title {
+  padding: 22rpx 30rpx 10rpx;
+  position: relative;
+  z-index: 10;
+}
+
+.order-num {
+  font-size: 24rpx;
+  color: #151515;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.order-num .time{
+  font-size: 24rpx;
+  color:#c0c0c0;
+}
+.order-time {
+  font-size: 32rpx;
+  color: #808080;
+}
+
+.order-time-text {
+  display: inline-block;
+  font-size: 48rpx;
+  line-height: 30rpx;
+  color: #00a4d8;
+  margin-right: 22rpx;
+}
+.order-btn {
+  position: absolute;
+  top:30rpx;
+  right:30rpx;
+  width: 180rpx;
+  height: 64rpx;
+  background-image: linear-gradient(135deg, #27dcc6 0%, #03a8d7 100%);
+  border-radius: 10rpx;
+  font-size: 32rpx;
+  font-family: PingFang-SC-Medium;
+  color: rgba(255, 255, 255, 1);
+  line-height: 64rpx;
+  text-align: center;
+  box-shadow: 0 6rpx 14rpx 0 rgba(4,171,214,0.36);
+}
+.order-btn.timeover{
+  background: #ccc;
+  box-shadow: none;
+}
+
+.order-main {
+  position: relative;
+  padding: 16rpx 30rpx 22rpx 30rpx;
+  background: #fff;
+  border-bottom-left-radius: 20rpx;
+  border-bottom-right-radius: 20rpx;
+}
+
+.order-main .line {
+  position: absolute;
+  top: -60rpx;
+  left: 0;
+  width: 100%;
+}
+
+.order-main .goods-name {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #151515;
+  line-height: 60rpx;
+  margin-top: 20rpx;
+  margin-bottom: 25rpx;
+  text-align: justify;
+}
+
+.order-main .order-info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25rpx;
+  position: relative;
+}
+
+.order-clamp-item {
+  font-size: 24rpx;
+  color: #151515;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.order-clamp-item image {
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 28rpx;
+}
+.order-price {
+  font-size: 30rpx;
+  color:#151515;
+  position: absolute;
+  right:30rpx;
+  bottom:20rpx;
+}
+.order-price text {
+  font-size: 40rpx;
+  line-height: 40rpx;
+  color: #ff8872;
+  letter-spacing: -1.43px;
+  font-weight: bold;
+}
+.no-data .more navigator{
+  display: inline-block;
+  color: #02A7D7;
+}
+.express navigator{
+  width:146rpx;
+  height:50rpx;
+  border:1rpx solid #09c;
+  border-radius: 9rpx;
+  color:#09c;
+  text-align: center;
+  line-height: 50rpx;
+  font-size: 24rpx;
+}
+.express{
+  display: flex;
+  justify-content: flex-end;
+}
+.error{
+  font-size: 24rpx;
+  color:#ff8872;
+}

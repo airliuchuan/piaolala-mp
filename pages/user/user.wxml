@@ -1,0 +1,49 @@
+<!--pages/user/user.wxml-->
+<view class="container">
+  <!--用户信息-->
+  <view class="user-info">
+    <!-- <image mode='aspectFill' class="bj" src="/images/user_bj.png"></image> -->
+    <block wx:if="{{checkLogin}}">
+      <view class="user-head">
+        <open-data type="userAvatarUrl" class='user-avatar'></open-data>
+        <open-data type="userNickName" class='user-name'></open-data>
+      </view>
+    </block>
+    <block wx:else>
+      <view class="user-head">
+        <image class="user-avatar" src="../../images/user_default.png"></image>
+        <text class="user-name">未登录</text>
+      </view>
+      <button class='login' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
+        点击登录
+      </button>
+    </block>
+  </view>
+  <!-- 列表 -->
+  <view class="list">
+    <!-- 微信公众号 -->
+    <view class="wechat-sub {{wechatShow?'show':''}}">
+      <official-account bindload="wechatSubLoad"></official-account>
+    </view>
+    <view class="item" wx:for="{{list}}" data-index="{{index}}" bindtap='routerPage'>
+      <image class="icon" src="{{item.icon}}"></image>
+      <view class="content">
+        <text>{{item.title}}</text>
+      </view>
+    </view>
+    <button class="item" open-type='contact'>
+      <image class="icon" src="/images/icon_contact.png"></image>
+      <view class="content">
+        <text>联系客服</text>
+      </view>
+    </button>
+    <button class="item" open-type='openSetting'>
+      <image class="icon" src="/images/icon_setting.png"></image>
+      <view class="content">
+        <text>设置</text>
+      </view>
+    </button>
+  </view>
+  <!-- 提示 -->
+  <van-toast id="van-toast" />
+</view>

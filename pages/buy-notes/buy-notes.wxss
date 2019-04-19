@@ -1,0 +1,13 @@
+/* pages/buy-notes/buy-notes.wxss */
+
+.container {
+  padding: 30rpx;
+}
+
+.p {
+  font-size: 28rpx;
+  color: #808080;
+  text-align: justify;
+  line-height: 50rpx;
+  margin-bottom: 50rpx;
+}

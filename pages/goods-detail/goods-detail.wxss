@@ -1,0 +1,6 @@
+/* pages/goods-detail/goods-detail.wxss */
+@import "../../wxParse/wxParse.wxss";
+.detail{
+  padding:0 30rpx;
+  background: #fff;
+}

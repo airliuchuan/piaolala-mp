@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "查看物流",
+    "usingComponents": {
+      "van-steps": "../../components/vant/steps/index",
+      "van-toast": "../../components/vant/toast/index",
+      "i-toast": "../../components/i-view/toast/index"
+    }
+}

@@ -1,0 +1,51 @@
+<view class="container">
+  <view class='month flex s-center'>
+    <!-- <view class='arrow' bindtap='prevMonth'>◀ </view> -->
+    <view>
+      <picker mode="date" value="{{date}}" start="2015-09" end="2020-09" fields='month' bindchange="bindDateChange">
+        <view>
+          <text>{{month}}月</text>{{year}}
+        </view>
+      </picker>
+    </view>
+    <!-- <view class='arrow' bindtap='nextMonth'> ▶</view> -->
+  </view>
+  <view class='calendar flex column s-center'>
+    <view class='week-row flex m-around'>
+      <view class='grid' wx:for="{{week}}" wx:key='item'>{{item}}</view>
+    </view>
+    <swiper class='swpier-box' circular="true" vertical="true" current="{{swiperIndex}}" bindchange='swiperChange'>
+      <swiper-item class='flex m-around days-table'>
+        <view wx:for="{{calendar.first}}" wx:for-item='x' wx:key='x.date' class='grid {{x.plan?"":"notCurrent"}} {{x.date == defaultDate?"today":""}} {{x.date == beSelectDate ? "choice":""}}' data-month='{{x.month}}' data-day='{{x.day}}' data-date='{{x.date}}'
+          data-plan="{{x.plan}}" bindtap='bindDayTap'>
+          <view>{{x.day}}</view>
+        </view>
+      </swiper-item>
+      <swiper-item class='flex m-around days-table '>
+        <view wx:for="{{calendar.second}}" wx:for-item='x' wx:key='x.date' class='grid {{x.plan?"":"notCurrent"}} {{x.date == defaultDate?"today":""}} {{x.date == beSelectDate && x.mouth == planDefaultMouth ? "choice":""}}' data-month='{{x.month}}' data-day='{{x.day}}'
+          data-date='{{x.date}}' data-test='{{(year + "-" +month + "-" + day)}}' data-plan="{{x.plan}}" bindtap='bindDayTap'>
+          <view>{{x.day}}</view>
+        </view>
+      </swiper-item>
+      <swiper-item class='flex m-around days-table'>
+        <view wx:for="{{calendar.third}}" wx:for-item='x' wx:key='x.date' class='grid {{x.plan?"":"notCurrent"}} {{x.date == defaultDate?"today":""}} {{x.date == beSelectDate && x.mouth == planDefaultMouth? "choice":""}}' data-month='{{x.month}}' data-day='{{x.day}}'
+          data-date='{{x.date}}' data-plan="{{x.plan}}" bindtap='bindDayTap'>
+          <view>{{x.day}}</view>
+        </view>
+      </swiper-item>
+      <swiper-item class='flex m-around days-table '>
+        <view wx:for="{{calendar.fourth}}" wx:for-item='x' wx:key='x.date' class='grid {{x.plan?"":"notCurrent"}} {{x.date == defaultDate?"today":""}} {{x.date == beSelectDate ? "choice":""}}' data-month='{{x.month}}' data-day='{{x.day}}' data-date='{{x.date}}'
+          data-plan="{{x.plan}}" bindtap='bindDayTap'>
+          <view>{{x.day}}</view>
+        </view>
+      </swiper-item>
+    </swiper>
+  </view>
+  <view class="plan-list">
+    <view wx:for="{{planList}}" data-index="{{index}}" data-id="{{item.planId}}" class="item {{item.planId == planId?'active':''}}" bindtap='changePlan'>{{item.planName}}</view>
+  </view>
+  <view class="bottom">
+    <button bindtap='getChoice'>选好了</button>
+  </view>
+  <i-toast id="toast" i-class="full-toast" i-mask="full-mask"/>
+</view>

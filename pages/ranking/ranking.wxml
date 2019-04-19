@@ -1,0 +1,58 @@
+<!--pages/ranking/ranking.wxml-->
+<wxs src="../../filter/computed.wxs" module="computed" />
+<view class="container">
+  <view class="ranking-list">
+    <navigator wx:for="{{rankingList}}" class="ranking-item" hover-class='none' url="/pages/ranking-detail/ranking-detail?id={{item.recGoId}}&goodsId={{item.goodsId}}">
+      <view class="ranking-name">
+        <view class="name">
+          <view class="space" style="background:{{color}}"></view>
+          <view class="title" style="background:rgb({{bgRgb}})">
+            <view class="text">TOP.
+              <text style="color:{{color}}">{{index+1}}</text>
+            </view>
+            <view class="text-overflow">{{item.showName}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="main">
+        <view class="pic">
+          <image mode='aspectFill' src="{{item.goodsImg}}"></image>
+        </view>
+        <view class="content">
+          <view class="rate">
+            <text class="label">评分</text>
+            <wux-rater icon-class="imoon-hurt" slot="footer" default-value="{{item.star/20}}" font-size="20" activeColor="#FF8777" disabled />
+            <text>{{computed.fixed(item.star/10,1)}}</text>
+          </view>
+          <view class="rate second">
+            <text class="label">热度</text>
+            <wux-rater icon-class="imoon-hurt" slot="footer" default-value="{{item.weight/20}}" font-size="20" activeColor="#FF8777" disabled />
+            <text>{{computed.fixed(item.weight/10,1)}}</text>
+          </view>
+          <view class="time">
+            演出时间
+            <text>{{item.formatTime}}</text>
+          </view>
+          <view class="upper">
+            <block wx:if="{{item.goodsPrice}}">
+              价格
+              <text>{{item.goodsPrice}}</text>元起
+            </block>
+            <block wx:else>
+              暂无价格
+            </block>
+          </view>
+        </view>
+      </view>
+      <view class="bottom">
+        <view class="comment">{{item.words}}</view>
+        <view class="location text-overflow">
+          <image src="/images/location_icon.png"></image>
+          <text>{{item.venueName}}</text>
+        </view>
+      </view>
+      <image wx:if="{{index===0}}" class="ranking-icon" src="/images/ranking_icon.png"></image>
+    </navigator>
+  </view>
+  <i-toast id="toast" i-class="full-toast" i-mask="full-mask"/>
+</view>

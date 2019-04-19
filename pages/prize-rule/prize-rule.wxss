@@ -1,0 +1,32 @@
+/* pages/przie-rule/przie-rule.wxss */
+.container{
+  padding: 20rpx 30rpx 40rpx;
+}
+.item {
+  margin-bottom: 54rpx;
+}
+
+.title {
+  height: 32rpx;
+  padding-left: 10rpx;
+  font-size: 32rpx;
+  color: #00a4d8;
+  text-align: left;
+  line-height: 32rpx;
+  border-left: 2px solid #00a4d8;
+}
+
+.content {
+  font-size: 28rpx;
+  color: #323232;
+  text-align: justify;
+  line-height: 54rpx;
+  margin-top: 15rpx;
+  word-break: break-all;
+}
+.s-title{
+  line-height: 100rpx;
+}
+.s-content{
+  margin-bottom: 30rpx;
+}
